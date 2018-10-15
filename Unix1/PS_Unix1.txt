@@ -1,0 +1,4 @@
+sort -gr -k10  cuffdiff.txt > sorted.cuffdiff.out
+head sorted.cuffdiff.out | column -t
+head -100 sorted.cuffdiff.out > top100.sorted.cuffdiff.out 
+cut -f1 top100.sorted.cuffdiff.out 
