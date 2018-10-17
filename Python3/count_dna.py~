@@ -1,8 +1,0 @@
-#!/usr/bin/env python3
-
-my_dna = int(sys.argv[1])
-
-my_dna.upper().count('A')
-my_dna.upper().count('T')
-my_dna.upper().count('C')
-my_dna.upper().count('G')
