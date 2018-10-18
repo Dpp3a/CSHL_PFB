@@ -1,0 +1,4 @@
+
+
+
+DNA_seq_unique = set(DNA_seq)
