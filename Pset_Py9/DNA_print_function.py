@@ -1,0 +1,66 @@
+#!usr/bin/env python
+import re
+
+#Create a function to format a string of DNA so that each line is no more than 60 nt long.
+def DNA_format(dna):
+    short_dna = re.findall(r'\w{60}', dna)
+    return '\n'.join(short_dna)
+
+dna = 'GATGGGATTGGGGTTTTCCCCTCCCATGTGCTCAAGACTGGCGCTAAAAGTTTTGAGCTTCTCAAAAGTCTAGAGCCACCGTCCAGGGAGCAGGTAGCTGCTGGGCTCCGGGGACACTTTGCGTTCGGGCTGGGAGCGTGCTTTCCACGACGGTGACACGCTTCCCTGGATTGGCAGCCAGACTGCCTTCCGGGTCACTGCCATGGAGGAGCCGCAGTCAGATCCTAGCGTCGAGCCCCCTCTGAGTCAGGAAACATTTTCAGACCTATGGAAACTACTTCCTGAAAACAACGTTCTGTCCCCCTTGCCGTCCCAAGCAATGGATGATTTGATGCTGTCCCCGGACGATATTGAACAATGGTTCACTGAAGACCCAGGTCCAGATGAAGCTCCCAGAATGCCAGAGGCTGCTCCCCCCGTGGCCCCTGCACCAGCAGCTCCTACACCGGCGGCCCCTGCACCAGCCCCCTCCTGGCCCCTGTCATCTTCT'
+
+print(DNA_format(dna))
+print('end of DNA format1')
+
+
+#Modify your function so that it will work whether the DNA string does or does not have newlines.
+def DNA_format2(dna):
+    for line in dna:
+        line = line.rstrip('\n')
+        dna +=line
+    short_dna = re.findall(r'\w{60}',dna)
+    return '\n'.join(short_dna)
+
+
+dna2 = '''GATGGGATTGGGGTTTTCCCCTCCCATGTGCTCAAGACTGGCGCTAAAAGTTTTGAGCTTCTCAAAAGTCTAGAGCCACC
+GTCCAGGGAGCAGGTAGCTGCTGGGCTCCGGGGACACTTTGCGTTCGGGCTGGGAGCGTGCTTTCCACGACGGTGACACG
+CTTCCCTGGATTGGCAGCCAGACTGCCTTCCGGGTCACTGCCATGGAGGAGCCGCAGTCAGATCCTAGCGTCGAGCCCCC
+TCTGAGTCAGGAAACATTTTCAGACCTATGGAAACTACTTCCTGAAAACAACGTTCTGTCCCCCTTGCCGTCCCAAGCAA
+TGGATGATTTGATGCTGTCCCCGGACGATATTGAACAATGGTTCACTGAAGACCCAGGTCCAGATGAAGCTCCCAGAATG
+CCAGAGGCTGCTCCCCCCGTGGCCCCTGCACCAGCAGCTCCTACACCGGCGGCCCCTGCACCAGCCCCCTCCTGGCCCCT
+GTCATCTTCT'''
+
+print(DNA_format2(dna2))
+print('end of DNA format2')
+
+
+#Modify your function so that it takes two arguments, the DNA string and the max length of each line.
+def DNA_format3(dna,width):
+    for line in dna:
+        line = line.rstrip('\n')
+        dna +=line
+    template = '\w{'+str(width)+'}'
+    short_dna = re.findall(template,dna)
+    return '\n'.join(short_dna)
+
+dna3 = 'GATGGGATTGGGGTTTTCCCCTCCCATGTGCTCAAGACTGGCGCTAAAAGTTTTGAGCTTCTCAAAAGTCTAGAGCCACCGTCCAGGGAGCAGGTAGCTGCTGGGCTCCGGGGACACTTTGCGTTCGGGCTGGGAGCGTGCTTTCCACGACGGTGACACGCTTCCCTGGATTGGCAGCCAGACTGCCTTCCGGGTCACTGCCATGGAGGAGCCGCAGTCAGATCCTAGCGTCGAGCCCCCTCTGAGTCAGGAAACATTTTCAGACCTATGGAAACTACTTCCTGAAAACAACGTTCTGTCCCCCTTGCCGTCCCAAGCAATGGATGATTTGATGCTGTCCCCGGACGATATTGAACAATGGTTCACTGAAGACCCAGGTCCAGATGAAGCTCCCAGAATGCCAGAGGCTGCTCCCCCCGTGGCCCCTGCACCAGCAGCTCCTACACCGGCGGCCCCTGCACCAGCCCCCTCCTGGCCCCTGTCATCTTCT'
+width = 80
+
+print(DNA_format3(dna,width))
+print('end of DNA format3')
+
+
+#Modify your script so that it can take two command line arguments: FASTA file name, Max length of each line
+def DNA_format4(fasta_name,width):
+    for line in file_object:
+        line = line.rstrip()
+        if line.find('>') != -1:
+             seq_name,len,path = line.rsplit()
+        else:
+             seq += line
+        sequences[seq_name] = seq
+    for line in dna:
+         line = line.rstrip('\n')
+         dna +=line
+     template = '\w{'+str(width)+'}'
+     short_dna = re.findall(template,dna)
+     return '\n'.join(short_dna)
