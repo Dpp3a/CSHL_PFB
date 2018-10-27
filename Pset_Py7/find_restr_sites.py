@@ -51,5 +51,4 @@ for line in fasta_open:
             fragments = sorted(fragments, key = len)
             print(fragments)
 
-
 fasta_open.close()
